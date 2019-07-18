@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/main2.js?");
+eval("document.getElementById(\"study\").innerHTML=\"hello webpack\"\n\n//# sourceURL=webpack:///./src/main2.js?");
 
 /***/ })
 

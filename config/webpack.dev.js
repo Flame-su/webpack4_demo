@@ -1,15 +1,29 @@
 const path = require('path')
 
 module.exports = {
+  mode: 'development',
   entry: {
-    main: './src/main.js'
-  },               // 入口文件
+    main: './src/main.js',
+    main2: './src/main2.js'
+  },
   output: {
-    filename: 'bundle.js',      // 打包后的文件名称
-    path: path.resolve(__dirname,'../dist')  // 打包后的目录，必须是绝对路径
-  },              // 出口文件
-  module: {},              // 处理对应模块
-  plugins: [],             // 对应的插件
-  devServer: {},           // 开发服务器配置
-  mode: 'development'      // 模式配置
+    path: path.join(__dirname, '../dist'),
+    filename: '[name].js'
+  },
+  devServer: {
+    compress: true,
+    host: '0.0.0.0',
+    port: 7766,
+    contentBase:path.resolve(__dirname,'../dist'),
+  },
+  module: {
+    rules: [{
+      test: /\.less$/,
+      use: ['style-loader', 'css-loader', 'less-loader']
+    },
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    }]
+  },
 }
